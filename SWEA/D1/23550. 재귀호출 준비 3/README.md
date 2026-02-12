@@ -1,0 +1,21 @@
+23550. 재귀호출 준비 3
+[링크](https://swexpertacademy.com/main/talk/solvingClub/problemPassedUser.do?contestProbId=AZUB10BKmBvHBIQp&solveclubId=AZvefmuKBurHBIN6&problemBoxTitle=%EC%9E%AC%EA%B7%80%ED%98%B8%EC%B6%9C+%28%EC%88%9C%EC%97%B4%2C+%EC%A1%B0%ED%95%A9%2C+%EB%B6%80%EB%B6%84%EC%A7%91%ED%95%A9%29&problemBoxCnt=12&probBoxId=AZxFRuWazlvHBIT3)
+
+문제 내용
+       
+시간 : 1개 테스트케이스를 합쳐서 C의 경우 1초 / C++의 경우 1초 / Java의 경우 1초 / Python의 경우 30초
+
+메모리 : 힙, 정적 메모리 합쳐서 256MB 이내, 스택 메모리 1MB 이내
+
+0 1 2 3 4 5 5 4 3 2 1 0을 재귀호출을 이용하여 구현해 보세요.
+
+반드시 재귀호출과 기저조건을 구현합니다.
+
+
+[입력]
+
+없음
+
+[출력]
+
+0 1 2 3 4 5 5 4 3 2 1 0
