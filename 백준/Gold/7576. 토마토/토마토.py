@@ -1,37 +1,36 @@
 from collections import deque
 
-M, N = map(int, input().split()) # 상자의 가로칸 수, 세로칸 수
+m, n = map(int, input().split())
+arr =[]
+for _ in range(n):
+    arr.append(list(map(int, input().split())))
 
-arr = [list(map(int, input().split())) for _ in range(N)]
+di = [-1, 0, 1, 0]
+dj = [0, 1, 0, -1]
 
-queue = deque()
-# 멀티 시작 BFS -> 시작점 전부 넣기
-for i in range(N):
-    for j in range(M):
+start_list = []
+
+def bfs(arr, start_list):
+    que = deque(start_list)
+    while que:
+        i, j , day = que.popleft()
+        for d in range(4):
+            ni = i + di[d]
+            nj = j + dj[d]
+            if 0 <= ni < n and 0 <= nj < m and arr[ni][nj] == 0:
+                arr[ni][nj] = 1
+                que.append((ni, nj, day +1))
+    for row in arr:
+        for r in row:
+            if r == 0:
+                return -1
+    return day
+
+
+
+
+for i in range(n):
+    for j in range(m):
         if arr[i][j] == 1:
-            queue.append((i, j))
-
-# BFS 한 번만
-while queue:
-    y, x = queue.popleft()
-
-    for dy, dx in [(0,1), (0,-1), (1,0), (-1,0)]:
-        yy = y + dy
-        xx = x + dx
-        # 상하좌우 토마토 영향
-        if 0 <= yy < N and 0 <= xx < M:
-            if arr[yy][xx] == 0:
-                # 거리로 일수 계산
-                arr[yy][xx] = arr[y][x] + 1
-                queue.append((yy, xx))
-
-# 결과 확인
-ans = 0
-for i in range(N):
-    for j in range(M):
-        if arr[i][j] == 0:
-            print(-1)
-            exit()
-        ans = max(ans, arr[i][j])
-
-print(ans - 1)
+            start_list.append((i, j, 0))
+print(bfs(arr, start_list))
