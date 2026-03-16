@@ -8,6 +8,8 @@ for tc in range(1, T+1):
     path = []
     ans = float('inf')
 
+    # depth : N명의 점원을 검토(N)
+    # branch : 집합에 현재 원소가 포함 O X (2가지)
     def rec(now, i):
         global ans
 
@@ -17,9 +19,7 @@ for tc in range(1, T+1):
             return
 
         for j in range(i, N):
-            path.append(arr[j])
             rec(now + arr[j], j+1)
-            path.pop()
 
     rec(0, 0)
 
